@@ -1,0 +1,24 @@
+.categoryLink {
+  background-color: var(--grey);
+  display: grid;
+  grid-template-rows: 100px auto;
+  position: relative;
+  border-radius: 0.5em;
+}
+
+.categoryLink img {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  margin: 0 auto;
+  bottom: 65px;
+  z-index: 0;
+}
+
+.categoryLink .details {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

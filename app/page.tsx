@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import styles from './page.module.css';
 import Hero from '@/components/hero/Hero';
+import CategoryLinks from '@/components/CategoryLinks/CategoryLinks';
 
 export const metadata = {
   title: 'Home',
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <Hero />
-      <div>I am the home page</div>
+      <CategoryLinks />
     </main>
   );
 }

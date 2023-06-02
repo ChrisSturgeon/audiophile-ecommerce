@@ -1,19 +1,32 @@
 .wrapper {
   background-color: var(--black);
   min-height: 60px;
-  position: fixed;
-  width: 100vw;
-  /* align-self: start; */
+  position: sticky;
+  width: 100%;
+  align-self: start;
   top: 0;
+  z-index: 1000;
+  /* padding: 1em 1em; */
+  display: flex;
+  justify-content: center;
+  background-color: blue;
 }
 
 .desktopNav {
-  max-width: var(--max-width);
-  padding: 1em 2em;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  border-bottom: 0.5px solid var(--grey);
+  border-bottom: 0.5px solid var(--very-dark-grey);
+  width: clamp(200px, 100%, 1024px);
+  display: flex;
+  align-items: center;
+  background-color: red;
+}
+
+@media (max-width: 1056px) {
+  .desktopNav {
+    padding: 0 2em;
+  }
 }
 
 .desktopNav a {
@@ -25,7 +38,6 @@
   font-weight: 800;
   letter-spacing: -0.05rem;
   flex: 1;
-
   margin-left: 2em;
 }
 
@@ -52,10 +64,11 @@
   }
 }
 
-@media (min-width: 768px) {
-  .desktopNav > a:first-of-type {
+/* @media (min-width: 1100px) {
+  .desktopNav {
+    padding: 1em 1;
   }
-}
+} */
 
 @media (max-width: 768px) {
   .desktopNav > a:first-of-type {

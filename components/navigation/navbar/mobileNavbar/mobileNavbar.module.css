@@ -3,7 +3,7 @@
   width: 100%;
   z-index: 99;
   position: fixed;
-  top: 65px;
+  top: 59px;
   background-color: var(--white);
   display: flex;
   flex-direction: column;

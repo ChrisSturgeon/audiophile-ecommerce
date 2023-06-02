@@ -1,0 +1,28 @@
+.wrapper {
+  margin-top: 5em;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper section {
+  padding: 1em 2em;
+  width: clamp(200px, 100%, 1024px);
+  background-color: pink;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5em;
+}
+
+@media (min-width: 768px) {
+  .wrapper section {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+  }
+}
+
+@media (min-width: 1056px) {
+  .wrapper section {
+    padding: 0;
+  }
+}

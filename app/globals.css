@@ -6,8 +6,13 @@
   --black: #000000;
   --white: #ffffff;
   --orange: #d87d4a;
+  --light-orange: #fbaf85;
+
+  --light-grey: #090808;
+
   --grey: #f1f1f1;
-  --light-grey: #fafafa;
+  --dark-grey: #dad6d6;
+  --very-dark-grey: #6f6f6f;
 }
 
 * {
