@@ -1,0 +1,41 @@
+.featured {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 2em;
+  background-color: pink;
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+@media (min-width: 1056px) {
+  .featured {
+    padding: 0;
+  }
+}
+
+.zx9 {
+  background-color: var(--orange);
+  position: relative;
+  min-height: 1000px;
+  overflow: hidden;
+}
+
+.zx9 img {
+  max-height: 200px;
+}
+
+.zx9 svg {
+  width: calc(100% * 1.73);
+  margin-left: auto;
+  margin-right: auto;
+  /* left: 0; */
+  /* left: 0;
+  right: 0; */
+  left: -37%;
+  top: -29%;
+  height: auto;
+  position: absolute;
+
+  /* width: 200px;
+  height: 200px; */
+}

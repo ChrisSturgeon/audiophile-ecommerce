@@ -1,6 +1,7 @@
 import styles from './page.module.css';
 import Hero from '@/components/hero/Hero';
 import CategoryLinks from '@/components/CategoryLinks/CategoryLinks';
+import FeaturedProducts from '@/components/FeaturedProducts/FeaturedProducts';
 
 export const metadata = {
   title: 'Home',
@@ -12,6 +13,7 @@ export default function Home() {
     <main className={styles.main}>
       <Hero />
       <CategoryLinks />
+      <FeaturedProducts />
     </main>
   );
 }

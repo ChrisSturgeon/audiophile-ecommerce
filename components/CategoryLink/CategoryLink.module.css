@@ -22,3 +22,22 @@
   align-items: center;
   justify-content: center;
 }
+
+.categoryLink .details h2 {
+  font-size: 18px;
+  font-weight: 5700;
+}
+
+.categoryLink .details a span {
+  margin-top: 0.5em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--very-dark-grey);
+}
+
+.categoryLink .details a:hover span {
+  color: var(--orange);
+}
