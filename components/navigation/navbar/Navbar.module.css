@@ -6,10 +6,8 @@
   align-self: start;
   top: 0;
   z-index: 1000;
-  /* padding: 1em 1em; */
   display: flex;
   justify-content: center;
-  background-color: blue;
 }
 
 .desktopNav {
@@ -20,7 +18,6 @@
   width: clamp(200px, 100%, 1024px);
   display: flex;
   align-items: center;
-  background-color: red;
 }
 
 @media (max-width: 1056px) {

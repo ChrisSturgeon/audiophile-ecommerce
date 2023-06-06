@@ -16,17 +16,18 @@
 .zx9 {
   background-color: var(--orange);
   position: relative;
-  /* min-height: 200px; */
   overflow: hidden;
   border-radius: 8px;
 }
 
 .zx9 .content {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2em;
   padding: 4em 1em;
+  z-index: 200;
 }
 
 @media (min-width: 1024px) {
@@ -41,12 +42,17 @@
     width: 400px;
     align-items: flex-start;
     padding-left: 2em;
+    gap: 1em;
   }
 
   .zx9 .content img {
     width: 400px;
     position: relative;
     top: 5.1em;
+  }
+
+  .zx9 .content h2 {
+    font-size: 56px;
   }
 
   .zx9 .content h2,
@@ -68,7 +74,13 @@
 }
 
 .zx9 img {
-  width: 200px;
+  width: 150px;
+}
+
+@media (min-width: 768px) {
+  .zx9 img {
+    width: 200px;
+  }
 }
 
 .zx9 h2 {
@@ -99,23 +111,11 @@
   background-color: var(--very-dark-grey);
 }
 
-.zx9 img {
-  /* width: 25%; */
-  /* max-width: 50%; */
-  /* width: 25%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto; */
-}
-
 .zx9 svg {
-  /* width: 100%;
-  height: 300px; */
-  /* width: 150%; */
-  /* margin-left: auto;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
   left: 0;
   right: 0;
-  position: absolute; */
 }

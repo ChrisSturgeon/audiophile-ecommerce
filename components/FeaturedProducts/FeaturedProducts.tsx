@@ -1,7 +1,38 @@
+'use client';
+
 import styles from './FeaturedProducts.module.css';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 export default function FeaturedProducts() {
+  function getDeviceType(width: number) {
+    if (width < 768) {
+      return 'mobile';
+    }
+
+    if (width < 1024 && width >= 768) {
+      return 'tablet';
+    }
+
+    return 'desktop';
+  }
+  const [device, setDevice] = useState<'mobile' | 'tablet' | 'desktop'>(
+    getDeviceType(window.innerWidth)
+  );
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setDevice(getDeviceType(window.innerWidth));
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+    console.log(device);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, [device]);
+
   return (
     <section className={styles.featured}>
       <div className={styles.zx9}>
@@ -37,18 +68,50 @@ export default function FeaturedProducts() {
           </div>
         </div>
 
-        {/* <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="100%"
-          width="100%"
-          viewBox="0 0 944 944"
-        >
-          <g stroke="#FFF" fill="none" fillRule="evenodd" opacity=".502">
-            <circle cx="472" cy="472" r="235.5" />
-            <circle cx="472" cy="472" r="270.5" />
-            <circle cx="472" cy="472" r="471.5" />
-          </g>
-        </svg> */}
+        {device === 'mobile' && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="100%"
+            width="100%"
+            viewBox="200 180 544 944"
+          >
+            <g stroke="#FFF" fill="none" fillRule="evenodd" opacity=".15">
+              <circle cx="472" cy="472" r="235.5" />
+              <circle cx="472" cy="472" r="270.5" />
+              <circle cx="472" cy="472" r="471.5" />
+            </g>
+          </svg>
+        )}
+
+        {device === 'tablet' && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="100%"
+            width="100%"
+            viewBox="0 180 944 944"
+          >
+            <g stroke="#FFF" fill="none" fillRule="evenodd" opacity=".15">
+              <circle cx="472" cy="472" r="270.5" />
+              <circle cx="472" cy="472" r="315.5" />
+              <circle cx="472" cy="472" r="471.5" />
+            </g>
+          </svg>
+        )}
+
+        {device === 'desktop' && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="100%"
+            width="100%"
+            viewBox="200 0 944 944"
+          >
+            <g stroke="#FFF" fill="none" fillRule="evenodd" opacity="0.15">
+              <circle cx="472" cy="472" r="235.5" />
+              <circle cx="472" cy="472" r="270.5" />
+              <circle cx="472" cy="472" r="471.5" />
+            </g>
+          </svg>
+        )}
       </div>
     </section>
   );
