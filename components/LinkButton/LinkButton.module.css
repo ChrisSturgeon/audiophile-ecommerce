@@ -1,0 +1,36 @@
+.linkButton {
+  padding: 1em 2em;
+  letter-spacing: 1px;
+  font-size: 13px;
+  max-width: 150px;
+}
+
+.linkButton.black {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.linkButton.black:hover {
+  background-color: var(--very-dark-grey);
+}
+
+.linkButton.orange {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+.linkButton.orange:hover {
+  background-color: var(--light-orange);
+  color: var(--white);
+}
+
+.linkButton.transparent {
+  background-color: transparent;
+  color: var(--black);
+  outline: 1px solid var(--black);
+}
+
+.linkButton.transparent:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
