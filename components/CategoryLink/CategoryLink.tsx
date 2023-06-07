@@ -13,7 +13,6 @@ export default function CategoryLink({ name, imageURL, altText }: Props) {
       <img src={imageURL} alt={altText} />
       <div className={styles.details}>
         <h2>{name}</h2>
-
         <Link href={`/${name.toLowerCase()}`}>
           <span>
             <div>SHOP</div>

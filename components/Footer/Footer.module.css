@@ -1,0 +1,23 @@
+.wrapper {
+  background-color: var(--black);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper footer {
+  width: clamp(200px, 100%, 1024px);
+  padding: 1em;
+}
+
+@media (min-width: 768px) {
+  .wrapper footer {
+    padding: 1em 2em;
+  }
+}
+
+@media (min-width: 1056px) {
+  .wrapper footer {
+    padding: 1em 0;
+  }
+}

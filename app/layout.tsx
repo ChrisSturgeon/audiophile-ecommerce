@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
 import styles from './layout.module.css';
+import Footer from '@/components/Footer/Footer';
 
 // export const metadata = {
 //   title: 'Create Next App',
@@ -25,11 +26,10 @@ export default function RootLayout({
           rel="stylesheet"
         ></link>
       </head>
-
       <body className={styles.layout}>
         <Navbar />
         <main>{children}</main>
-        <footer>I am the footer</footer>
+        <Footer />
       </body>
     </html>
   );

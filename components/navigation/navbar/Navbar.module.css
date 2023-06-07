@@ -11,23 +11,19 @@
 }
 
 .desktopNav {
-  margin: 0 auto;
+  background-color: var(--black);
   display: flex;
   justify-content: space-between;
   border-bottom: 0.5px solid var(--very-dark-grey);
   width: clamp(200px, 100%, 1024px);
   display: flex;
   align-items: center;
-}
-
-@media (max-width: 1056px) {
-  .desktopNav {
-    padding: 0 2em;
-  }
+  padding: 0 1em;
 }
 
 .desktopNav a {
   color: var(--white);
+  text-align: center;
 }
 
 .desktopNav > a:first-of-type {
@@ -35,7 +31,7 @@
   font-weight: 800;
   letter-spacing: -0.05rem;
   flex: 1;
-  margin-left: 2em;
+  margin-left: 0 auto;
 }
 
 .desktopNav .categories {
@@ -46,7 +42,33 @@
   letter-spacing: 0.15rem;
 }
 
-@media (min-width: 1024px) {
+.cartBtn {
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.cartBtn svg path {
+  fill: var(--white);
+}
+
+@media (min-width: 768px) {
+  .desktopNav {
+    padding: 0 2em;
+  }
+
+  .desktopNav > a:first-of-type {
+    margin-left: 2em;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1056px) {
+  .desktopNav {
+    padding: 0;
+  }
+
   .desktopNav .categories {
     display: flex;
   }
@@ -59,28 +81,4 @@
     flex: 0 1 auto;
     margin-left: 0;
   }
-}
-
-/* @media (min-width: 1100px) {
-  .desktopNav {
-    padding: 1em 1;
-  }
-} */
-
-@media (max-width: 768px) {
-  .desktopNav > a:first-of-type {
-    text-align: center;
-    margin-left: 0;
-  }
-}
-
-.cartBtn {
-  background-color: transparent;
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-}
-
-.cartBtn svg path {
-  fill: var(--white);
 }

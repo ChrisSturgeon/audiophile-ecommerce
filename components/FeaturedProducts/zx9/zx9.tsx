@@ -1,7 +1,6 @@
 'use client';
 
 import styles from './zx9.module.css';
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import LinkButton from '@/components/LinkButton/LinkButton';
 
@@ -43,18 +42,26 @@ export default function ZX9() {
           <source
             media="(max-width: 748px)"
             srcSet="/assets/home/mobile/image-speaker-zx9.png"
+            width={320}
+            height={388}
           />
           <source
             media="(max-width: 1023px)"
             srcSet="/assets/home/tablet/image-speaker-zx9.png"
+            width={366}
+            height={444}
           />
           <source
             media="(min-width: 1024px)"
             srcSet="/assets/home/desktop/image-speaker-zx9.png"
+            width={756}
+            height={918}
           />
           <img
             src="/assets/home/mobile/image-speaker-zx9.png"
-            alt="A pair of XX99 Mark 2 headphones in black with light reflecting from the front "
+            alt="A pair of XX99 Mark 2 headphones in black with light reflecting from the front"
+            width={320}
+            height={388}
           />
         </picture>
         <div className={styles.text}>
