@@ -1,0 +1,13 @@
+.categoryHeader {
+  background-color: var(--black);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  padding: 2em 0;
+}
+
+.categoryHeader h1 {
+  font-size: 30px;
+  line-height: 44px;
+  letter-spacing: 1.43px;
+}

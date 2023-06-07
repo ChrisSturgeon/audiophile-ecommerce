@@ -98,9 +98,9 @@
     },
     "category": "headphones",
     "categoryImage": {
-      "mobile": "./assets/product-xx59-headphones/mobile/image-category-page-preview.jpg",
-      "tablet": "./assets/product-xx59-headphones/tablet/image-category-page-preview.jpg",
-      "desktop": "./assets/product-xx59-headphones/desktop/image-category-page-preview.jpg"
+      "mobile": "/assets/product-xx59-headphones/mobile/image-category-page-preview.jpg",
+      "tablet": "/assets/product-xx59-headphones/tablet/image-category-page-preview.jpg",
+      "desktop": "/assets/product-xx59-headphones/desktop/image-category-page-preview.jpg"
     },
     "new": false,
     "price": 899,
