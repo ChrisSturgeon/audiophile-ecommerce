@@ -8,9 +8,9 @@
 .wrapper section {
   padding: 0 1em;
   width: clamp(200px, 100%, 1024px);
-  display: grid;
-  grid-template-rows: auto auto;
-  gap: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .wrapper section img {
@@ -47,7 +47,6 @@
     padding: 0 2em;
   }
   .wrapper section .content {
-    max-width: 600px;
     margin: 0 auto;
   }
   .wrapper section .content h2 {
@@ -57,16 +56,33 @@
 
 @media (min-width: 1024px) {
   .wrapper section {
-    grid-template-rows: auto;
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1em;
+  }
+
+  .wrapper section .content,
+  .wrapper section .pictureWrapper {
+    flex: 1 0 50%;
   }
 
   .wrapper section .content {
     justify-content: center;
     text-align: left;
+    width: 100%;
     grid-column: 1 / 2;
-    grid-row: 1/1;
+    grid-row: 1;
+  }
+
+  .wrapper section img {
+    width: 100%;
+  }
+
+  .wrapper section picture {
+    grid-column: 2 / 2;
+  }
+
+  .wrapper section .content h2 {
+    max-width: 400px;
   }
 
   .wrapper section .content p {

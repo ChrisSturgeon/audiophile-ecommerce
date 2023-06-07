@@ -32,6 +32,8 @@
   letter-spacing: -0.05rem;
   flex: 1;
   margin-left: 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 .desktopNav .categories {
