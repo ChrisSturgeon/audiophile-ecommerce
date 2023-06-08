@@ -1,8 +1,11 @@
 import styles from './CategorySKU.module.css';
+import LinkButton from '../LinkButton/LinkButton';
 
 interface Props {
   index: number;
+  isNew: boolean;
   name: string;
+  category: string;
   slug: string;
   description: string;
   images: {
@@ -13,14 +16,20 @@ interface Props {
 }
 export default function CategorySKU({
   index,
+  isNew,
   name,
+  category,
   slug,
   description,
   images,
 }: Props) {
   console.log(images);
   return (
-    <div className={styles.sku}>
+    <div
+      className={
+        index % 2 === 0 ? styles.sku : `${styles.sku} ${styles.reversed}`
+      }
+    >
       <picture>
         <source
           media="(max-width: 748px)"
@@ -43,10 +52,19 @@ export default function CategorySKU({
         <img
           src={images.mobile}
           alt="A pair of XX99 Mark 2 headphones in black with light reflecting from the front"
-          // width={654}
-          // height={640}
+          loading={index > 1 ? 'lazy' : 'eager'}
         />
       </picture>
+      <div className={styles.content}>
+        {isNew && <span>NEW PRODUCT</span>}
+        <h2>{name}</h2>
+        <p>{description}</p>
+        <LinkButton
+          URL={`${category}/${slug}`}
+          text="SEE PRODUCT"
+          style="orange"
+        />
+      </div>
     </div>
   );
 }

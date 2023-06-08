@@ -1,0 +1,53 @@
+.sku {
+  /* background-color: pink; */
+}
+
+.sku img {
+  max-width: 100%;
+  height: auto;
+}
+
+.sku .content {
+  /* background-color: rgb(160, 160, 193); */
+  padding-top: 2em;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.sku .content span {
+  color: var(--orange);
+  font-size: 14px;
+  letter-spacing: 10px;
+}
+
+.sku .content h2 {
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.sku .content p {
+  color: var(--very-dark-grey);
+  font-size: 15px;
+  line-height: 25px;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .sku {
+    display: flex;
+  }
+
+  .sku.reversed {
+    flex-direction: row-reverse;
+  }
+
+  .sku img {
+    height: 520px;
+  }
+}

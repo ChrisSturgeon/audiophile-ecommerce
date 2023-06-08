@@ -1,0 +1,25 @@
+.skuWrapper {
+  width: clamp(200px, 100%, 1024px);
+  margin: 0 auto;
+  padding: 0 1em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6em;
+}
+
+@media (min-width: 768px) {
+  .skuWrapper {
+    padding: 0 2em;
+  }
+}
+
+@media (min-width: 1056px) {
+  .skuWrapper {
+    padding: 0;
+  }
+}
+
+/* .skuWrapper img {
+  max-width: 100%;
+} */

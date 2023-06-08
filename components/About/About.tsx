@@ -1,9 +1,10 @@
 import styles from './About.module.css';
+import ComponentWrapper from '../ComponentWrapper/ComponentWrapper';
 
 export default function About() {
   return (
-    <div className={styles.wrapper}>
-      <section>
+    <ComponentWrapper>
+      <section className={styles.about}>
         <picture>
           <source
             media="(max-width: 748px)"
@@ -28,6 +29,7 @@ export default function About() {
             alt="A man wearing a paid of headphones, holding his right hand up to to his ear."
             width={654}
             height={640}
+            loading={'lazy'}
           />
         </picture>
         <div className={styles.content}>
@@ -44,6 +46,6 @@ export default function About() {
           </p>
         </div>
       </section>
-    </div>
+    </ComponentWrapper>
   );
 }

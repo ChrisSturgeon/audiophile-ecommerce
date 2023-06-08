@@ -1,71 +1,63 @@
-.wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 2em;
-  margin-bottom: 3em;
-}
-
-.wrapper section {
-  padding: 0 1em;
+.about {
   width: clamp(200px, 100%, 1024px);
   display: flex;
   flex-direction: column;
   gap: 1em;
+  margin-bottom: 2em;
 }
 
-.wrapper section img {
+.about img {
   width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
-.wrapper section .content {
+.about .content {
   display: flex;
   flex-direction: column;
   gap: 2em;
   text-align: center;
 }
 
-.wrapper section .content h2 {
+.about .content h2 {
   font-size: 28px;
   letter-spacing: 1px;
   font-weight: bold;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.wrapper section .content h2 span {
+.about .content h2 span {
   color: var(--orange);
 }
 
-.wrapper section .content p {
+.about .content p {
   color: var(--very-dark-grey);
   line-height: 25px;
   font-size: 15px;
 }
 
 @media (min-width: 768px) {
-  .wrapper section {
-    padding: 0 2em;
-  }
-  .wrapper section .content {
+  .about .content {
     margin: 0 auto;
   }
-  .wrapper section .content h2 {
+  .about .content h2 {
     font-size: 40px;
   }
 }
 
 @media (min-width: 1024px) {
-  .wrapper section {
+  .about {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
 
-  .wrapper section .content,
-  .wrapper section .pictureWrapper {
+  .about .content,
+  .about .pictureWrapper {
     flex: 1 0 50%;
   }
 
-  .wrapper section .content {
+  .about .content {
     justify-content: center;
     text-align: left;
     width: 100%;
@@ -73,25 +65,20 @@
     grid-row: 1;
   }
 
-  .wrapper section img {
+  .about img {
     width: 100%;
   }
 
-  .wrapper section picture {
+  .about picture {
     grid-column: 2 / 2;
   }
 
-  .wrapper section .content h2 {
+  .about .content h2 {
     max-width: 400px;
+    margin: 0;
   }
 
-  .wrapper section .content p {
+  .about .content p {
     max-width: 425px;
-  }
-}
-
-@media (min-width: 1056px) {
-  .wrapper section {
-    padding: 0;
   }
 }

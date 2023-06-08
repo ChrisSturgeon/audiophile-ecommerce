@@ -23,7 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 2em;
+  padding: 1em;
 }
 
 .content > div {
@@ -33,12 +33,6 @@
   align-items: center;
   height: 100%;
   gap: 1em;
-}
-
-@media (min-width: 1056px) {
-  .content {
-    padding-left: 0;
-  }
 }
 
 .content > div h1 {
@@ -85,6 +79,7 @@
   .content {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding-left: 2em;
   }
 
   .content > div {
@@ -98,5 +93,11 @@
 
   .content > div p {
     text-align: left;
+  }
+}
+
+@media (min-width: 1080px) {
+  .content {
+    padding-left: 0;
   }
 }

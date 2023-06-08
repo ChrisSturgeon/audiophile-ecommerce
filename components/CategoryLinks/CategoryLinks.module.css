@@ -1,12 +1,6 @@
-.wrapper {
-  display: flex;
-  justify-content: center;
+.categoryLinks {
   margin-top: 7em;
   margin-bottom: 3em;
-}
-
-.wrapper section {
-  padding: 0 1em;
   width: clamp(200px, 100%, 1024px);
   display: grid;
   grid-template-rows: repeat(3, 1fr);
@@ -14,16 +8,9 @@
 }
 
 @media (min-width: 768px) {
-  .wrapper section {
-    padding: 0 2em;
+  .categoryLinks {
     grid-template-rows: 1fr;
     grid-template-columns: repeat(3, 1fr);
     gap: 1em;
-  }
-}
-
-@media (min-width: 1056px) {
-  .wrapper section {
-    padding: 0;
   }
 }

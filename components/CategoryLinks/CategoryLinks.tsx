@@ -1,10 +1,11 @@
 import styles from './CategoryLinks.module.css';
 import CategoryLink from '../CategoryLink/CategoryLink';
+import ComponentWrapper from '../ComponentWrapper/ComponentWrapper';
 
 export default function CategoryLinks() {
   return (
-    <div className={styles.wrapper}>
-      <section>
+    <ComponentWrapper>
+      <section className={styles.categoryLinks}>
         <CategoryLink
           name={'HEADPHONES'}
           imageURL={
@@ -29,6 +30,6 @@ export default function CategoryLinks() {
           }
         />
       </section>
-    </div>
+    </ComponentWrapper>
   );
 }

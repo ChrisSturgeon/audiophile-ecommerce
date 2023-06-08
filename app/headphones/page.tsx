@@ -1,9 +1,11 @@
+import styles from './page.module.css';
 import getCategorySKUS from '@/lib/getCategorySKU';
 
 import CategoryHeader from '@/components/CategoryHeader/CategoryHeader';
 import CategoryLinks from '@/components/CategoryLinks/CategoryLinks';
 import About from '@/components/About/About';
 import CategorySKU from '@/components/CategorySKU/CategorySKU';
+import CategorySKUS from '@/components/CategorySKUS/CategorySKUS';
 
 export const metadata = {
   title: 'Headphones',
@@ -17,19 +19,8 @@ export default function HeadphonesPage() {
   return (
     <div>
       <CategoryHeader name={'HEADPHONES'} />
+      <CategorySKUS category="headphones" />
       <CategoryLinks />
-      {skus.map((sku, index) => {
-        return (
-          <CategorySKU
-            key={sku.id}
-            index={index}
-            name={sku.name}
-            slug={sku.slug}
-            description={sku.description}
-            images={sku.categoryImage}
-          />
-        );
-      })}
       <About />
     </div>
   );

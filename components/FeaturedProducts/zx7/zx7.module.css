@@ -1,12 +1,11 @@
 .zx7 {
-  width: clamp(200px, 100%, 1100px);
+  width: clamp(200px, 100%, 1024px);
   position: relative;
 }
 
 .zx7 img {
   width: 100%;
   height: auto;
-  object-fit: cover;
   border-radius: 8px;
 }
 

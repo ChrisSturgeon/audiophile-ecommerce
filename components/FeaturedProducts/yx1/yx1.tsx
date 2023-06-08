@@ -29,6 +29,7 @@ export default function YX1() {
             alt="A pair of XX99 Mark 2 headphones in black with light reflecting from the front"
             width={654}
             height={400}
+            loading="lazy"
           />
         </picture>
       </div>

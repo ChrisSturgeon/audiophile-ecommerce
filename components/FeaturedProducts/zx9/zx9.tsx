@@ -62,6 +62,7 @@ export default function ZX9() {
             alt="A pair of XX99 Mark 2 headphones in black with light reflecting from the front"
             width={320}
             height={388}
+            loading="lazy"
           />
         </picture>
         <div className={styles.text}>
