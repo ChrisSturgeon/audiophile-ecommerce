@@ -1,16 +1,22 @@
+'use client';
 import Navbar from '@/components/navigation/navbar/Navbar';
 import './globals.css';
 import { Inter } from 'next/font/google';
+import { useState } from 'react';
+import useCart from './hooks/useCart';
 
 const inter = Inter({ subsets: ['latin'] });
 import styles from './layout.module.css';
 import Footer from '@/components/Footer/Footer';
+
+interface CartProps {}
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { cart, setCart, incrementCart } = useCart();
   return (
     <html lang="en">
       <head>
@@ -22,7 +28,7 @@ export default function RootLayout({
         ></link>
       </head>
       <body className={styles.layout}>
-        <Navbar />
+        <Navbar cart={cart} incrementCart={incrementCart} />
         <main>{children}</main>
         <Footer />
       </body>

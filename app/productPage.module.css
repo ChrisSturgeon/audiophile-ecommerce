@@ -1,0 +1,9 @@
+.product {
+  /* background-color: rgb(249, 217, 222); */
+}
+
+.product .back a {
+  font-size: 15px;
+  line-height: 25px;
+  color: var(--very-dark-grey);
+}

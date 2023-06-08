@@ -1,5 +1,11 @@
 import data from '../../../data.json';
+import styles from '../../productPage.module.css';
 import { redirect } from 'next/navigation';
+import ComponentWrapper from '@/components/ComponentWrapper/ComponentWrapper';
+import Link from 'next/link';
+import ProductDetails from '@/components/ProductDetails/ProductDetails';
+
+// TO DO make metadata
 
 function getProductData(id: string) {
   const productData = data.find((product) => {
@@ -21,12 +27,28 @@ interface PageProps {
 
 export default function Page({ params }: PageProps) {
   const data = getProductData(params.id);
+  console.log(data);
 
   if (!data) {
     redirect('/');
   }
 
-  return <div>I am the headphone detail page for {data.name}</div>;
+  return (
+    <ComponentWrapper>
+      <section className={styles.product}>
+        <span className={styles.back}>
+          <Link href={`/${data.category}`}>Go Back</Link>
+        </span>
+        <ProductDetails
+          image={data.image}
+          name={data.name}
+          price={data.price}
+          isNew={data.new}
+          description={data.description}
+        />
+      </section>
+    </ComponentWrapper>
+  );
 }
 
 export async function generateStaticParams() {

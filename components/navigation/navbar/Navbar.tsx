@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import MobileNavbar from './mobileNavbar/MobileNavbar';
 
-export default function Navbar() {
+export default function Navbar({ cart, incrementCart }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   function toggleMobileNav() {
@@ -53,6 +53,13 @@ export default function Navbar() {
               fillRule="nonzero"
             />
           </svg>
+        </button>
+        <button
+          onClick={() => {
+            incrementCart('yx1-earphones');
+          }}
+        >
+          Hi
         </button>
       </nav>
       <MobileNavbar isVisible={mobileOpen} toggleMobileNav={toggleMobileNav} />
