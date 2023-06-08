@@ -1,13 +1,7 @@
-.skusWrapper {
-  display: flex;
-  justify-content: center;
-  padding: 1em;
-}
-
 .skus {
   width: clamp(200px, 100%, 1024px);
   display: flex;
   flex-direction: column;
-  gap: 6em;
+  gap: 4em;
   padding-block: 3em;
 }

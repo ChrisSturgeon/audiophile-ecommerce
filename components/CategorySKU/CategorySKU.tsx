@@ -23,7 +23,6 @@ export default function CategorySKU({
   description,
   images,
 }: Props) {
-  console.log(images);
   return (
     <div
       className={
@@ -34,30 +33,34 @@ export default function CategorySKU({
         <source
           media="(max-width: 748px)"
           srcSet={images.mobile}
-          // width={654}
-          // height={640}
+          width={654}
+          height={704}
         />
         <source
           media="(max-width: 1023px)"
           srcSet={images.tablet}
-          // width={689}
-          // height={320}
+          width={1378}
+          height={704}
         />
         <source
           media="(min-width: 1024px)"
           srcSet={images.desktop}
-          // width={1100}
-          // height={320}
+          width={1080}
+          height={1120}
         />
         <img
           src={images.mobile}
-          alt="A pair of XX99 Mark 2 headphones in black with light reflecting from the front"
+          alt={name}
           loading={index > 1 ? 'lazy' : 'eager'}
+          width={654}
+          height={704}
         />
       </picture>
       <div className={styles.content}>
-        {isNew && <span>NEW PRODUCT</span>}
-        <h2>{name}</h2>
+        <div>
+          {isNew && <span>NEW PRODUCT</span>}
+          <h2>{name}</h2>
+        </div>
         <p>{description}</p>
         <LinkButton
           URL={`${category}/${slug}`}

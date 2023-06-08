@@ -5,12 +5,20 @@ interface Props {
   name: string;
   imageURL: string;
   altText: string;
+  width: number;
+  height: number;
 }
 
-export default function CategoryLink({ name, imageURL, altText }: Props) {
+export default function CategoryLink({
+  name,
+  imageURL,
+  altText,
+  width,
+  height,
+}: Props) {
   return (
     <div className={styles.categoryLink}>
-      <img src={imageURL} alt={altText} />
+      <img src={imageURL} alt={altText} width={width} height={height} />
       <div className={styles.details}>
         <h2>{name}</h2>
         <Link href={`/${name.toLowerCase()}`}>

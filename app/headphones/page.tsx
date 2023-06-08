@@ -1,10 +1,6 @@
-import styles from './page.module.css';
-import getCategorySKUS from '@/lib/getCategorySKU';
-
 import CategoryHeader from '@/components/CategoryHeader/CategoryHeader';
 import CategoryLinks from '@/components/CategoryLinks/CategoryLinks';
 import About from '@/components/About/About';
-import CategorySKU from '@/components/CategorySKU/CategorySKU';
 import CategorySKUS from '@/components/CategorySKUS/CategorySKUS';
 
 export const metadata = {
@@ -13,9 +9,6 @@ export const metadata = {
 };
 
 export default function HeadphonesPage() {
-  const skus = getCategorySKUS('headphones');
-  console.log(skus);
-
   return (
     <div>
       <CategoryHeader name={'HEADPHONES'} />

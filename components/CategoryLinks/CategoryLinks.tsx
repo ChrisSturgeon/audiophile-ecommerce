@@ -12,6 +12,8 @@ export default function CategoryLinks() {
             '/assets/shared/desktop/image-category-thumbnail-headphones.png'
           }
           altText={'A pair of xx-99 mark one headphones'}
+          width={438}
+          height={422}
         />
         <CategoryLink
           name={'SPEAKERS'}
@@ -19,6 +21,8 @@ export default function CategoryLinks() {
             '/assets/shared/desktop/image-category-thumbnail-speakers.png'
           }
           altText={'A single zx-9 speaker'}
+          width={438}
+          height={408}
         />
         <CategoryLink
           name={'EARPHONES'}
@@ -28,6 +32,8 @@ export default function CategoryLinks() {
           altText={
             'The black external charging case for a pair of yx1 earphones'
           }
+          width={438}
+          height={380}
         />
       </section>
     </ComponentWrapper>

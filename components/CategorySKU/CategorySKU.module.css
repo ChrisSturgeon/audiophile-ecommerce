@@ -1,14 +1,10 @@
-.sku {
-  /* background-color: pink; */
-}
-
 .sku img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  border-radius: 8px;
 }
 
 .sku .content {
-  /* background-color: rgb(160, 160, 193); */
   padding-top: 2em;
   flex: 1;
   display: flex;
@@ -18,13 +14,21 @@
   gap: 1em;
 }
 
-.sku .content span {
+.sku .content div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.sku .content div span {
   color: var(--orange);
   font-size: 14px;
   letter-spacing: 10px;
+  width: 100%;
+  text-align: center;
 }
 
-.sku .content h2 {
+.sku .content div h2 {
   font-weight: 700;
   font-size: 28px;
   letter-spacing: 1px;
@@ -47,7 +51,32 @@
     flex-direction: row-reverse;
   }
 
+  .sku .content,
   .sku img {
-    height: 520px;
+    flex: 1 0 50%;
+  }
+  .sku .content {
+    align-items: flex-start;
+  }
+
+  .sku .content div span {
+    text-align: left;
+  }
+
+  .sku .content div h2 {
+    text-align: left;
+  }
+
+  .sku .content p {
+    max-width: 400px;
+    text-align: left;
+  }
+
+  .sku .content {
+    padding-left: 4em;
+  }
+
+  .sku.reversed .content {
+    padding-left: 0;
   }
 }
