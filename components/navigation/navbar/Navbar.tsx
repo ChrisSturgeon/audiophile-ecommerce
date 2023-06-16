@@ -4,9 +4,11 @@ import styles from './Navbar.module.css';
 import Link from 'next/link';
 import { useState } from 'react';
 import MobileNavbar from './mobileNavbar/MobileNavbar';
+import { useGlobalContext } from '@/app/Context/cart';
 
-export default function Navbar({ cart, incrementCart }) {
+export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { cart, incrementProduct, decrementProduct } = useGlobalContext();
 
   function toggleMobileNav() {
     setMobileOpen(!mobileOpen);
@@ -38,7 +40,7 @@ export default function Navbar({ cart, incrementCart }) {
           <Link href="/speakers">SPEAKERS</Link>
           <Link href="/earphones">EARPHONES</Link>
         </div>
-        <button className={styles.cartBtn}>
+        <button onClick={() => console.log(cart)} className={styles.cartBtn}>
           <svg width="23" height="20" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M8.625 15.833c1.132 0 2.054.935 2.054 2.084 0 1.148-.922 2.083-2.054 2.083-1.132 
@@ -56,10 +58,17 @@ export default function Navbar({ cart, incrementCart }) {
         </button>
         <button
           onClick={() => {
-            incrementCart('yx1-earphones');
+            incrementProduct('yx1-earphones');
           }}
         >
-          Hi
+          Increment
+        </button>
+        <button
+          onClick={() => {
+            decrementProduct('yx1-earphones');
+          }}
+        >
+          Decrement
         </button>
       </nav>
       <MobileNavbar isVisible={mobileOpen} toggleMobileNav={toggleMobileNav} />

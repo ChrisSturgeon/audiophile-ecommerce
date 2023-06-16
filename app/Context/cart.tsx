@@ -1,14 +1,30 @@
-import { useState, useEffect } from 'react';
+'use client';
 import data from '../../data.json';
 
-type ProductDetails = {
+import { createContext, useContext, useState, useEffect } from 'react';
+
+interface CartItem {
   quantity: number;
   price: number;
-};
+}
 
 interface CartProps {
-  [name: string]: ProductDetails;
+  [key: string]: CartItem;
 }
+
+interface ContextProps {
+  cart: CartProps;
+  addProductWithQuantity: Function;
+  incrementProduct: Function;
+  decrementProduct: Function;
+}
+
+const GlobalContext = createContext<ContextProps>({
+  cart: {},
+  addProductWithQuantity: () => null,
+  incrementProduct: (): null => null,
+  decrementProduct: (): null => null,
+});
 
 // Helper functions
 function getProductDetails(name: string): [number, string] {
@@ -21,14 +37,37 @@ function getProductDetails(name: string): [number, string] {
 function isPresent(name: string, cart: CartProps) {
   return cart[name];
 }
-
-// Hook function
-export default function useCart() {
+// TODO - fix Type of Children
+export const GlobalContextProvider = ({ children }: { children: any }) => {
   const [cart, setCart] = useState<CartProps>({});
 
   useEffect(() => {
     console.log(cart);
   }, [cart]);
+
+  function addProductWithQuantity(product: string, quantity: number) {
+    const isExistingCartItem = isPresent(product, cart);
+
+    if (isExistingCartItem) {
+      setCart((prev) => ({
+        ...prev,
+        [product]: {
+          ...prev[product],
+          quantity: prev[product].quantity + quantity,
+        },
+      }));
+      return;
+    }
+
+    const [productPrice, productName] = getProductDetails(product);
+    setCart((prev) => ({
+      ...prev,
+      [productName]: {
+        quantity: quantity,
+        price: productPrice,
+      },
+    }));
+  }
 
   function incrementProduct(product: string) {
     const isExistingCartItem = isPresent(product, cart);
@@ -75,5 +114,18 @@ export default function useCart() {
     }
   }
 
-  return { cart, setCart, incrementProduct, decrementProduct };
-}
+  return (
+    <GlobalContext.Provider
+      value={{
+        cart,
+        addProductWithQuantity,
+        incrementProduct,
+        decrementProduct,
+      }}
+    >
+      {children}
+    </GlobalContext.Provider>
+  );
+};
+
+export const useGlobalContext = () => useContext(GlobalContext);

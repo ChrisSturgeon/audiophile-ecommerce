@@ -45,6 +45,7 @@ export default function Page({ params }: PageProps) {
           price={data.price}
           isNew={data.new}
           description={data.description}
+          slug={data.slug}
         />
       </section>
     </ComponentWrapper>

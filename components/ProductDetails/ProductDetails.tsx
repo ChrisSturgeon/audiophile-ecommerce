@@ -1,4 +1,6 @@
+import { useGlobalContext } from '@/app/Context/cart';
 import styles from './ProductDetails.module.css';
+import ProductDetailCartButtons from '../ProductDetailCartButtons/ProductDetailCartButtons';
 
 interface Props {
   image: {
@@ -10,6 +12,7 @@ interface Props {
   price: number;
   isNew: boolean;
   description: string;
+  slug: string;
 }
 export default function ProductDetails({
   image,
@@ -17,6 +20,7 @@ export default function ProductDetails({
   price,
   isNew,
   description,
+  slug,
 }: Props) {
   return (
     <div className={styles.details}>
@@ -48,7 +52,8 @@ export default function ProductDetails({
         </div>
         <p>{description}</p>
         <div className={styles.price}>$ {price}</div>
-        <div>Thingies here</div>
+        <div>Thingies here for</div>
+        <ProductDetailCartButtons slug={slug} />
       </div>
     </div>
   );
