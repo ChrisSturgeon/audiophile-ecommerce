@@ -52,7 +52,6 @@ export default function ProductDetails({
         </div>
         <p>{description}</p>
         <div className={styles.price}>$ {price}</div>
-        <div>Thingies here for</div>
         <ProductDetailCartButtons slug={slug} />
       </div>
     </div>

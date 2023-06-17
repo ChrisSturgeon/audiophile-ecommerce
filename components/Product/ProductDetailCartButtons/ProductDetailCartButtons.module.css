@@ -1,0 +1,39 @@
+.cartButtons {
+  display: flex;
+  gap: 1em;
+}
+
+.cartButtons > div {
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: var(--grey);
+}
+
+.cartButtons > div > div {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cartButtons > div button {
+  flex: 1;
+  height: 100%;
+  border: none;
+  color: var(--very-dark-grey);
+}
+
+.cartButtons > div button:hover {
+  color: var(--orange);
+}
+
+.cartButtons .add {
+  color: var(--white);
+  background-color: var(--orange);
+  border: none;
+  padding: 0 2em;
+  font-size: 13px;
+  letter-spacing: 1px;
+}

@@ -1,0 +1,25 @@
+.boxItems h2 {
+  margin-bottom: 1em;
+}
+
+.boxItems ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.boxItems ul li {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}
+
+.boxItems ul li div:first-of-type {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.boxItems ul li div:nth-of-type(2) {
+  color: var(--very-dark-grey);
+}

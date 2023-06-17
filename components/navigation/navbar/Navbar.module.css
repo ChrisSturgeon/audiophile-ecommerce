@@ -48,17 +48,6 @@
   letter-spacing: 0.15rem;
 }
 
-.cartBtn {
-  background-color: transparent;
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-}
-
-.cartBtn svg path {
-  fill: var(--white);
-}
-
 @media (min-width: 768px) {
   .desktopNav {
     padding: 0 2em;

@@ -1,0 +1,26 @@
+.cartButton {
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.cartButton svg {
+  fill: var(--white);
+}
+
+.itemCount {
+  color: var(--white);
+  background-color: var(--orange);
+  font-size: 0.8em;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

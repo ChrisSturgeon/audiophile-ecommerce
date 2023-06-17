@@ -1,9 +1,30 @@
-.product {
-  /* background-color: rgb(249, 217, 222); */
+.wrapper {
+  padding: 2em 0;
 }
 
-.product .back a {
+.back a {
   font-size: 15px;
   line-height: 25px;
   color: var(--very-dark-grey);
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  padding: 2em 0;
+  gap: 5em;
+}
+
+.product .featureBoxItems {
+  display: flex;
+  flex-direction: column;
+  gap: 5em;
+}
+
+@media (min-width: 1024px) {
+  .product .featureBoxItems {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 5em;
+  }
 }

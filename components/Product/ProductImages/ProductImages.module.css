@@ -1,0 +1,26 @@
+.images {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 100%;
+}
+
+.images img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .images {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 1fr 1.405fr;
+    grid-template-rows: auto auto;
+  }
+
+  .images picture:last-of-type {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+  }
+}

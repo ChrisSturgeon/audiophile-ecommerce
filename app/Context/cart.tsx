@@ -1,6 +1,5 @@
 'use client';
 import data from '../../data.json';
-
 import { createContext, useContext, useState, useEffect } from 'react';
 
 interface CartItem {
@@ -14,6 +13,7 @@ interface CartProps {
 
 interface ContextProps {
   cart: CartProps;
+  totalCartItems: number;
   addProductWithQuantity: Function;
   incrementProduct: Function;
   decrementProduct: Function;
@@ -21,6 +21,7 @@ interface ContextProps {
 
 const GlobalContext = createContext<ContextProps>({
   cart: {},
+  totalCartItems: 0,
   addProductWithQuantity: () => null,
   incrementProduct: (): null => null,
   decrementProduct: (): null => null,
@@ -40,6 +41,7 @@ function isPresent(name: string, cart: CartProps) {
 // TODO - fix Type of Children
 export const GlobalContextProvider = ({ children }: { children: any }) => {
   const [cart, setCart] = useState<CartProps>({});
+  const [totalCartItems, setTotalCartItems] = useState(0);
 
   useEffect(() => {
     console.log(cart);
@@ -114,10 +116,22 @@ export const GlobalContextProvider = ({ children }: { children: any }) => {
     }
   }
 
+  // Sums number of items in cart and updates count in state
+  useEffect(() => {
+    let totalCartItems = 0;
+
+    for (const item in cart) {
+      totalCartItems += cart[item].quantity;
+    }
+
+    setTotalCartItems(totalCartItems);
+  }, [cart]);
+
   return (
     <GlobalContext.Provider
       value={{
         cart,
+        totalCartItems,
         addProductWithQuantity,
         incrementProduct,
         decrementProduct,
