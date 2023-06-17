@@ -1,6 +1,5 @@
 .categoryLinks {
   margin-top: 7em;
-  margin-bottom: 3em;
   width: clamp(200px, 100%, 1024px);
   display: grid;
   grid-template-rows: repeat(3, 1fr);

@@ -27,6 +27,7 @@
 
 .cartButtons > div button:hover {
   color: var(--orange);
+  cursor: pointer;
 }
 
 .cartButtons .add {
@@ -36,4 +37,9 @@
   padding: 0 2em;
   font-size: 13px;
   letter-spacing: 1px;
+}
+
+.cartButtons .add:hover {
+  background-color: var(--light-orange);
+  cursor: pointer;
 }

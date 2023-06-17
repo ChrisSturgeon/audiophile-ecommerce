@@ -1,0 +1,25 @@
+.recommendations h2 {
+  margin-bottom: 1em;
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 0.86px;
+  font-weight: 700;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+
+@media (min-width: 768px) {
+  .products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+  }
+
+  .recommendations h2 {
+    font-size: 32px;
+  }
+}

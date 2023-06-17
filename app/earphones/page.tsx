@@ -1,3 +1,5 @@
+import styles from './page.module.css';
+
 import CategoryHeader from '@/components/CategoryHeader/CategoryHeader';
 import CategoryLinks from '@/components/CategoryLinks/CategoryLinks';
 import About from '@/components/About/About';
@@ -7,9 +9,11 @@ export default function Page() {
   return (
     <div>
       <CategoryHeader name={'EARPHONES'} />
-      <CategorySKUS category="earphones" />
-      <CategoryLinks />
-      <About />
+      <div className={styles.column}>
+        <CategorySKUS category="earphones" />
+        <CategoryLinks />
+        <About />
+      </div>
     </div>
   );
 }

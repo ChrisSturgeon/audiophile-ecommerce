@@ -1,3 +1,4 @@
+import styles from './page.module.css';
 import CategoryHeader from '@/components/CategoryHeader/CategoryHeader';
 import CategoryLinks from '@/components/CategoryLinks/CategoryLinks';
 import About from '@/components/About/About';
@@ -12,9 +13,11 @@ export default function HeadphonesPage() {
   return (
     <div>
       <CategoryHeader name={'SPEAKERS'} />
-      <CategorySKUS category="speakers" />
-      <CategoryLinks />
-      <About />
+      <div className={styles.column}>
+        <CategorySKUS category="speakers" />
+        <CategoryLinks />
+        <About />
+      </div>
     </div>
   );
 }

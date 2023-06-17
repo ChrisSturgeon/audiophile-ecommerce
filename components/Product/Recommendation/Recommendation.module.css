@@ -1,0 +1,16 @@
+.recommendation {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
+
+.recommendation img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.recommendation h3 {
+  text-align: center;
+}

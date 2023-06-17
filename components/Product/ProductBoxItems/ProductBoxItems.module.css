@@ -23,3 +23,9 @@
 .boxItems ul li div:nth-of-type(2) {
   color: var(--very-dark-grey);
 }
+
+@media (min-width: 768px) {
+  .boxItems h2 {
+    font-size: 32px;
+  }
+}

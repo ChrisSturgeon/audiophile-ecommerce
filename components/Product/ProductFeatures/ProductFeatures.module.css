@@ -12,3 +12,9 @@
   line-height: 25px;
   white-space: pre-wrap;
 }
+
+@media (min-width: 768px) {
+  .features h2 {
+    font-size: 32px;
+  }
+}

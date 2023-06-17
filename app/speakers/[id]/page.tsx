@@ -6,7 +6,7 @@ import ProductLayout from '@/components/Product/ProductLayout';
 
 function getProductData(id: string) {
   const productData = data.find((product) => {
-    return product.slug === id && product.category === 'headphones';
+    return product.slug === id && product.category === 'speakers';
   });
 
   if (productData) {
@@ -48,7 +48,7 @@ export default function Page({ params }: PageProps) {
 
 export async function generateStaticParams() {
   const headphones = data.filter((product) => {
-    if (product.category === 'headphones') {
+    if (product.category === 'speakers') {
       return product;
     }
   });

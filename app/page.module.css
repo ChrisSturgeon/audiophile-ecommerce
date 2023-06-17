@@ -1,3 +1,7 @@
-/* .main {
-  min-height: 200vh;
-} */
+.main .column {
+  display: flex;
+  flex-direction: column;
+  gap: 6em;
+  padding-top: 2em;
+  padding-bottom: 10em;
+}

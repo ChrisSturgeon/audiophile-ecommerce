@@ -1,5 +1,5 @@
 import styles from './page.module.css';
-import Hero from '@/components/hero/Hero';
+import Hero from '@/components/Hero/Hero';
 import CategoryLinks from '@/components/CategoryLinks/CategoryLinks';
 import FeaturedProducts from '@/components/FeaturedProducts/FeaturedProducts';
 import About from '@/components/About/About';
@@ -13,9 +13,11 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <Hero />
-      <CategoryLinks />
-      <FeaturedProducts />
-      <About />
+      <div className={styles.column}>
+        <CategoryLinks />
+        <FeaturedProducts />
+        <About />
+      </div>
     </main>
   );
 }

@@ -1,6 +1,6 @@
 import styles from './ProductImages.module.css';
 
-type ProductImages = {
+export type ProductImagesType = {
   first: {
     mobile: string;
     tablet: string;
@@ -18,12 +18,12 @@ type ProductImages = {
   };
 };
 
-interface Props {
-  images: ProductImages;
+export interface ProductImagesProps {
+  images: ProductImagesType;
   name: string;
 }
 
-export default function ProductImages({ images, name }: Props) {
+export default function ProductImages({ images, name }: ProductImagesProps) {
   return (
     <section className={styles.images}>
       <picture>

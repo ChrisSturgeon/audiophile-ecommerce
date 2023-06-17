@@ -6,6 +6,7 @@ import styles from './ProductDetailCartButtons.module.css';
 interface Props {
   slug: string;
 }
+
 export default function ProductDetailCartButtons({ slug }: Props) {
   const { cart, addProductWithQuantity } = useGlobalContext();
   const [counter, setCounter] = useState(0);
