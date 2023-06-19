@@ -5,6 +5,8 @@ import { createContext, useContext, useState, useEffect } from 'react';
 interface CartItem {
   quantity: number;
   price: number;
+  name: string;
+  thumbnail: string;
 }
 
 interface CartProps {
@@ -17,6 +19,8 @@ interface ContextProps {
   addProductWithQuantity: Function;
   incrementProduct: Function;
   decrementProduct: Function;
+  emptyCart: () => void;
+  getCartTotalPrice: () => number;
 }
 
 const GlobalContext = createContext<ContextProps>({
@@ -25,26 +29,62 @@ const GlobalContext = createContext<ContextProps>({
   addProductWithQuantity: () => null,
   incrementProduct: (): null => null,
   decrementProduct: (): null => null,
+  emptyCart: (): null => null,
+  getCartTotalPrice: (): number => 0,
 });
 
 // Helper functions
-function getProductDetails(name: string): [number, string] {
+function getProductDetails(name: string): [number, string, string, string] {
   const productData = data.find((product) => {
     return name === product.slug;
   });
-  return [productData!.price, productData!.slug];
+  return [
+    productData!.price,
+    productData!.slug,
+    productData!.name,
+    productData!.categoryImage.mobile,
+  ];
 }
 
 function isPresent(name: string, cart: CartProps) {
   return cart[name];
 }
+
+function getLocalStorageCart() {
+  const previousCart = localStorage.getItem('cart');
+
+  if (previousCart) {
+    return JSON.parse(previousCart);
+  }
+  return {};
+}
+
+function updateLocalStorageCart(cart: CartProps) {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
 // TODO - fix Type of Children
 export const GlobalContextProvider = ({ children }: { children: any }) => {
-  const [cart, setCart] = useState<CartProps>({});
+  const [cart, setCart] = useState<CartProps>(getLocalStorageCart());
   const [totalCartItems, setTotalCartItems] = useState(0);
 
   useEffect(() => {
     console.log(cart);
+  }, [cart]);
+
+  useEffect(() => {
+    updateLocalStorageCart(cart);
+  });
+
+  // Sums number of items in cart and updates count in state
+  useEffect(() => {
+    let totalCartItems = 0;
+
+    for (const item in cart) {
+      totalCartItems += cart[item].quantity;
+    }
+
+    setTotalCartItems(totalCartItems);
   }, [cart]);
 
   function addProductWithQuantity(product: string, quantity: number) {
@@ -61,12 +101,14 @@ export const GlobalContextProvider = ({ children }: { children: any }) => {
       return;
     }
 
-    const [productPrice, productName] = getProductDetails(product);
+    const [price, slug, name, thumbnail] = getProductDetails(product);
     setCart((prev) => ({
       ...prev,
-      [productName]: {
+      [slug]: {
         quantity: quantity,
-        price: productPrice,
+        price: price,
+        name: name,
+        thumbnail: thumbnail,
       },
     }));
   }
@@ -85,12 +127,14 @@ export const GlobalContextProvider = ({ children }: { children: any }) => {
       return;
     }
 
-    const [productPrice, productName] = getProductDetails(product);
+    const [price, slug, name, thumbnail] = getProductDetails(product);
     setCart((prev) => ({
       ...prev,
-      [productName]: {
+      [slug]: {
         quantity: 1,
-        price: productPrice,
+        price: price,
+        name: name,
+        thumbnail: thumbnail,
       },
     }));
   }
@@ -116,16 +160,19 @@ export const GlobalContextProvider = ({ children }: { children: any }) => {
     }
   }
 
-  // Sums number of items in cart and updates count in state
-  useEffect(() => {
-    let totalCartItems = 0;
+  function emptyCart() {
+    setCart({});
+  }
 
-    for (const item in cart) {
-      totalCartItems += cart[item].quantity;
-    }
+  function getCartTotalPrice() {
+    const items = Object.keys(cart);
+    let total = 0;
 
-    setTotalCartItems(totalCartItems);
-  }, [cart]);
+    return items.reduce(
+      (total, item) => total + cart[item].price * cart[item].quantity,
+      total
+    );
+  }
 
   return (
     <GlobalContext.Provider
@@ -135,6 +182,8 @@ export const GlobalContextProvider = ({ children }: { children: any }) => {
         addProductWithQuantity,
         incrementProduct,
         decrementProduct,
+        emptyCart,
+        getCartTotalPrice,
       }}
     >
       {children}

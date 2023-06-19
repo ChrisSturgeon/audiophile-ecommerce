@@ -2,7 +2,12 @@
   padding: 1em 2em;
   letter-spacing: 1px;
   font-size: 13px;
-  max-width: 150px;
+  width: 150px;
+}
+
+.fullWidth {
+  width: 100%;
+  text-align: center;
 }
 
 .linkButton.black {

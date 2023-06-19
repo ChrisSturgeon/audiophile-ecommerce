@@ -5,9 +5,15 @@ import Link from 'next/link';
 import { useState } from 'react';
 import MobileNavbar from './mobileNavbar/MobileNavbar';
 import CartButton from './CartButton/CartButton';
+import Cart from '@/components/Cart/Cart';
 
 export default function Navbar() {
+  const [cartOpen, setCartOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  function toggleCart() {
+    setCartOpen(!cartOpen);
+  }
 
   function toggleMobileNav() {
     setMobileOpen(!mobileOpen);
@@ -39,9 +45,10 @@ export default function Navbar() {
           <Link href="/speakers">SPEAKERS</Link>
           <Link href="/earphones">EARPHONES</Link>
         </div>
-        <CartButton />
+        <CartButton toggleCart={toggleCart} />
       </nav>
       <MobileNavbar isVisible={mobileOpen} toggleMobileNav={toggleMobileNav} />
+      {cartOpen && <Cart toggleCart={toggleCart} />}
     </div>
   );
 }

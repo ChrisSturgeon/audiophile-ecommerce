@@ -1,0 +1,75 @@
+.modal {
+  position: fixed;
+  z-index: 1;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.689);
+}
+
+.modal .content {
+  z-index: 99;
+  position: relative;
+  top: 1em;
+  margin-left: auto;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 8px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+}
+
+.modal .content > div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal .content h2 {
+  font-size: 18px;
+  letter-spacing: 1.29px;
+}
+
+.modal .content > div:first-of-type button {
+  color: var(--very-dark-grey);
+  background-color: transparent;
+  text-decoration: underline 1px var(--very-dark-grey);
+  text-underline-offset: 2px;
+  border: none;
+  font-size: 15px;
+  line-height: 25px;
+  padding: 0 0.5em;
+}
+
+.modal .content .items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.modal .content .total {
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal .content .total > div:first-of-type {
+  font-size: 18px;
+  color: var(--very-dark-grey);
+}
+
+.modal .content .total > div:nth-of-type(2) {
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .modal .content {
+    width: 350px;
+  }
+}

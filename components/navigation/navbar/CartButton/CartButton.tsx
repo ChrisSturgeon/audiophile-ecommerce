@@ -1,11 +1,15 @@
 import styles from './CartButton.module.css';
 import { useGlobalContext } from '@/app/Context/cart';
 
-export default function CartButton() {
+interface CartButtonProps {
+  toggleCart: () => void;
+}
+
+export default function CartButton({ toggleCart }: CartButtonProps) {
   const { cart, totalCartItems } = useGlobalContext();
 
   return (
-    <button onClick={() => console.log(cart)} className={styles.cartButton}>
+    <button onClick={toggleCart} className={styles.cartButton}>
       <svg width="23" height="20" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M8.625 15.833c1.132 0 2.054.935 2.054 2.084 0 1.148-.922 2.083-2.054 2.083-1.132 
