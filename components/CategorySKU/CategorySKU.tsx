@@ -52,8 +52,8 @@ export default function CategorySKU({
           src={images.mobile}
           alt={name}
           loading={index > 1 ? 'lazy' : 'eager'}
-          width={654}
-          height={704}
+          width={1080}
+          height={1120}
         />
       </picture>
       <div className={styles.content}>

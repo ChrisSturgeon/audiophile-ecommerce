@@ -1,5 +1,4 @@
 import styles from './page.module.css';
-
 import CheckoutLayout from '@/components/Checkout/CheckoutLayout/CheckoutLayout';
 import ComponentWrapper from '@/components/ComponentWrapper/ComponentWrapper';
 

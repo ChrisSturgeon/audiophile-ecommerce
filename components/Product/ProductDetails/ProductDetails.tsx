@@ -43,7 +43,7 @@ export default function ProductDetails({
           width={1080}
           height={1120}
         />
-        <img src={image.mobile} alt={name} width={654} height={704} />
+        <img src={image.mobile} alt={name} width={1080} height={1120} />
       </picture>
       <div className={styles.content}>
         <div>

@@ -3,7 +3,6 @@
 import styles from './CheckoutLayout.module.css';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Summary from '../Summary/Summary';
-import { useEffect, useState } from 'react';
 
 type Inputs = {
   name: string;
