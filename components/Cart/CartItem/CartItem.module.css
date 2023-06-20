@@ -37,6 +37,10 @@
   font-weight: 700;
 }
 
+.cartItem .quantity {
+  color: var(--very-dark-grey);
+}
+
 .cartItem .counter button {
   padding: 0.75em 1.5em;
   border: none;

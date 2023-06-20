@@ -1,14 +1,82 @@
-.summary {
+.summaryWrapper {
 }
 
-.summary > div {
+.summary {
   background-color: white;
   border-radius: 8px;
   padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.summary h2 {
+  margin-top: 1em;
+  font-size: 18px;
+  letter-spacing: 1.29px;
+}
+
+.summary .items {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.summary .prices > div {
+  background-color: pink;
+}
+
+.summary ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.summary ul li {
+  /* margin-block: 1em; */
+}
+
+.summary ul li span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary ul li span div:first-of-type {
+  color: var(--very-dark-grey);
+  font-size: 15px;
+}
+
+.summary ul li span div:nth-of-type(2) {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.summary ul li:last-of-type {
+  margin-top: 1em;
+}
+
+.summary ul li:last-of-type span div:nth-of-type(2) {
+  color: var(--orange);
+}
+
+.summary .payButton {
+  width: 100%;
+  background-color: var(--orange);
+  color: var(--white);
+  border: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding: 1em;
+}
+
+.summary .payButton:hover {
+  background-color: var(--light-orange);
 }
 
 @media (min-width: 1024px) {
-  .summary > div {
+  .summary {
     padding: 2em;
   }
 }

@@ -62,6 +62,7 @@ export default function Cart({ toggleCart }: CartProps) {
           <div className={styles.items}>
             {Object.entries(cart).map(([key, value]) => (
               <CartItem
+                type="cart"
                 key={value.name}
                 name={value.name}
                 quantity={value.quantity}

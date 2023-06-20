@@ -22,15 +22,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap"
-          rel="stylesheet preload"
-          as="style"
-        ></link> */}
-      </head>
       <GlobalContextProvider>
         <body className={`${styles.layout} ${manrope.className}`}>
           <Navbar />
