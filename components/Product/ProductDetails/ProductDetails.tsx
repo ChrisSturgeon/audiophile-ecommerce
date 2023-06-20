@@ -26,7 +26,7 @@ export default function ProductDetails({
     <div className={styles.details}>
       <picture>
         <source
-          media="(max-width: 748px)"
+          media="(max-width: 768px)"
           srcSet={image.mobile}
           width={654}
           height={654}

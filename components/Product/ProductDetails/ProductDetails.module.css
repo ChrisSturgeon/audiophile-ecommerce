@@ -50,12 +50,20 @@
     gap: 0;
   }
 
-  .details img {
-    flex: 1 0 45%;
+  /* .details picture,
+  .details .content {
+    width: 50%;
+  } */
+
+  .details picture {
+    width: 40%;
   }
 
   .details .content {
-    flex: 1 0 55%;
+    width: 60%;
+  }
+
+  .details .content {
     padding-left: 4em;
     justify-content: center;
     gap: 2em;
