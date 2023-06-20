@@ -1,6 +1,6 @@
 import styles from './ProductBoxItems.module.css';
 
-type BoxItems = {
+export type BoxItems = {
   quantity: number;
   item: string;
 }[];

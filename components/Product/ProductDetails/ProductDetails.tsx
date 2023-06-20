@@ -2,7 +2,7 @@ import { useGlobalContext } from '@/app/Context/cart';
 import styles from './ProductDetails.module.css';
 import ProductDetailCartButtons from '../ProductDetailCartButtons/ProductDetailCartButtons';
 
-interface Props {
+export interface ProductDetailsProps {
   image: {
     mobile: string;
     tablet: string;
@@ -21,7 +21,7 @@ export default function ProductDetails({
   isNew,
   description,
   slug,
-}: Props) {
+}: ProductDetailsProps) {
   return (
     <div className={styles.details}>
       <picture>

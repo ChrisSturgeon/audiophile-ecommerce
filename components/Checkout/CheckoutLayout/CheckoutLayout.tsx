@@ -18,7 +18,7 @@ type Inputs = {
   eMoneyPIN: string;
 };
 
-export default function App() {
+export default function CheckoutLayout() {
   const {
     register,
     handleSubmit,
