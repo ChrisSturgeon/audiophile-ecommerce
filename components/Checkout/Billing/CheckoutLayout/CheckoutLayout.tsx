@@ -1,114 +1,11 @@
 'use client';
-import { useState, useEffect } from 'react';
-import Billing from '../Billing';
+
+import styles from './CheckoutLayout.module.css';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import Summary from '../Summary/Summary';
+import { useEffect, useState } from 'react';
 
-export default function CheckoutLayout() {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    zip: '',
-    city: '',
-    country: '',
-    payment: '',
-    eMoneyNumber: '',
-    eMoneyPin: '',
-  });
-
-  const [validation, setValidation] = useState({
-    name: true,
-    email: true,
-    phone: true,
-    address: true,
-    zip: true,
-    city: true,
-    country: true,
-    payment: true,
-    eMoneyNumber: true,
-    eMoneyPin: true,
-  });
-
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    if (e.target.type === 'text' || e.target.type === 'email')
-      setForm((prev) => ({
-        ...prev,
-        [e.target.name]: e.target.value,
-      }));
-  }
-
-  function validateFormInputs() {
-    // Validate name
-    if (form.name.length < 3) {
-      setValidation((prev) => ({
-        ...prev,
-        name: false,
-      }));
-    } else {
-      setValidation((prev) => ({
-        ...prev,
-        name: true,
-      }));
-    }
-
-    // Validate email
-    if (!form.email.includes('@')) {
-      setValidation((prev) => ({
-        ...prev,
-        email: false,
-      }));
-    } else {
-      setValidation((prev) => ({
-        ...prev,
-        email: true,
-      }));
-    }
-  }
-
-  function areInputsValid(): boolean {
-    const allValid = Object.values(validation).every((item) => {
-      return item === true;
-    });
-
-    console.log(allValid);
-
-    if (allValid) {
-      return true;
-    }
-
-    return false;
-  }
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    validateFormInputs();
-
-    if (areInputsValid()) {
-      console.log('The form is valid!!!');
-      return;
-    }
-    console.log('invalid form');
-  }
-
-  return (
-    <section>
-      <form noValidate onSubmit={handleSubmit} id="checkout-form">
-        <Billing
-          formState={form}
-          validation={validation}
-          handleChange={handleChange}
-        />
-      </form>
-      <Summary />
-      <button onClick={() => console.log(validation, areInputsValid())}>
-        Log Validation
-      </button>
-    </section>
-  );
-}
-
-export interface CheckoutFormProps {
+type Inputs = {
   name: string;
   email: string;
   phone: string;
@@ -116,20 +13,267 @@ export interface CheckoutFormProps {
   zip: string;
   city: string;
   country: string;
-  payment: string;
+  paymentMethod: 'eMoney' | 'COD';
   eMoneyNumber: string;
-  eMoneyPin: string;
-}
+  eMoneyPIN: string;
+};
 
-export interface CheckoutValidationProps {
-  name: boolean;
-  email: boolean;
-  phone: boolean;
-  address: boolean;
-  zip: boolean;
-  city: boolean;
-  country: boolean;
-  payment: boolean;
-  eMoneyNumber: boolean;
-  eMoneyPin: boolean;
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const eMoney = watch('paymentMethod');
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
+  console.log(watch('paymentMethod'));
+
+  return (
+    <section className={styles.checkout}>
+      <div className={styles.inputs}>
+        <h1>CHECKOUT</h1>
+        <form onSubmit={handleSubmit(onSubmit)} id="checkout-form" noValidate>
+          <div className={styles.billing}>
+            <h2>BILLING DETAILS</h2>
+            <div>
+              <div
+                className={
+                  errors.name
+                    ? `${styles.labelledInput} ${styles.error}`
+                    : `${styles.labelledInput}`
+                }
+              >
+                <div className={styles.inputBar}>
+                  <label htmlFor="name">Name</label>
+                  {errors.name && <p>{errors.name.message}</p>}
+                </div>
+                <input
+                  id="name"
+                  {...register('name', {
+                    required: 'Name is required',
+                  })}
+                />
+              </div>
+              <div
+                className={
+                  errors.email
+                    ? `${styles.labelledInput} ${styles.error}`
+                    : `${styles.labelledInput}`
+                }
+              >
+                <div className={styles.inputBar}>
+                  <label htmlFor="email">Email</label>
+                  {errors.email && <p>{errors.email.message}</p>}
+                </div>
+                <input
+                  id="email"
+                  type="email"
+                  {...register('email', {
+                    required: 'Email is required',
+                    validate: {
+                      maxLength: (v) =>
+                        v.length <= 50 ||
+                        'The email should have at most 50 characters',
+                      matchPattern: (v) =>
+                        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+                        'Wrong format',
+                    },
+                  })}
+                />
+              </div>
+              <div
+                className={
+                  errors.phone
+                    ? `${styles.labelledInput} ${styles.error}`
+                    : `${styles.labelledInput}`
+                }
+              >
+                <div className={styles.inputBar}>
+                  <label htmlFor="name">Phone</label>
+                  {errors.name && <p>{errors.name.message}</p>}
+                </div>
+                <input
+                  type="tel"
+                  id="phone"
+                  defaultValue=""
+                  {...register('phone', {
+                    required: 'Phone is required',
+                  })}
+                />
+              </div>
+            </div>
+          </div>
+          <div className={styles.shipping}>
+            <h2>SHIPPING INFO</h2>
+            <div>
+              <div
+                className={
+                  errors.address
+                    ? `${styles.labelledInput} ${styles.error}`
+                    : `${styles.labelledInput}`
+                }
+              >
+                <div className={styles.inputBar}>
+                  <label htmlFor="address">Address</label>
+                  {errors.address && <p>{errors.address.message}</p>}
+                </div>
+                <input
+                  id="address"
+                  defaultValue=""
+                  {...register('address', {
+                    required: 'Address is required',
+                  })}
+                />
+              </div>
+              <div
+                className={
+                  errors.zip
+                    ? `${styles.labelledInput} ${styles.error}`
+                    : `${styles.labelledInput}`
+                }
+              >
+                <div className={styles.inputBar}>
+                  <label htmlFor="zip code">ZIP Code</label>
+                  {errors.zip && <p>{errors.zip.message}</p>}
+                </div>
+                <input
+                  id="zip code"
+                  defaultValue=""
+                  {...register('zip', {
+                    required: 'ZIP Code is required',
+                  })}
+                />
+              </div>
+              <div
+                className={
+                  errors.city
+                    ? `${styles.labelledInput} ${styles.error}`
+                    : `${styles.labelledInput}`
+                }
+              >
+                <div className={styles.inputBar}>
+                  <label htmlFor="city">City</label>
+                  {errors.city && <p>{errors.city.message}</p>}
+                </div>
+                <input
+                  defaultValue=""
+                  {...register('city', {
+                    required: 'City is required',
+                  })}
+                />
+              </div>
+              <div
+                className={
+                  errors.country
+                    ? `${styles.labelledInput} ${styles.error}`
+                    : `${styles.labelledInput}`
+                }
+              >
+                <div className={styles.inputBar}>
+                  <label htmlFor="country">Country</label>
+                  {errors.country && <p>{errors.country.message}</p>}
+                </div>
+                <input
+                  defaultValue=""
+                  {...register('country', {
+                    required: 'Country is required',
+                  })}
+                />
+              </div>
+            </div>
+          </div>
+          <div className={styles.payment}>
+            <h2>PAYMENT DETAILS</h2>
+            <div
+              className={
+                errors.paymentMethod
+                  ? `${styles.labelledInput} ${styles.error}`
+                  : `${styles.labelledInput}`
+              }
+            >
+              <div className={styles.inputBar}>
+                <p className={styles.paymentLabel}>Payment Method</p>
+                {errors.paymentMethod && <p>{errors.paymentMethod.message}</p>}
+              </div>
+              <div className={styles.radioInputs}>
+                <div>
+                  <input
+                    {...register('paymentMethod', {
+                      required: 'Payment Method is required',
+                    })}
+                    type="radio"
+                    value="COD"
+                    id="field-COD"
+                  />
+                  <label htmlFor="field-COD">
+                    <div>Cash on Delivery</div>
+                  </label>
+                </div>
+                <div>
+                  <input
+                    {...register('paymentMethod', {
+                      required: 'Payment Method is required',
+                    })}
+                    type="radio"
+                    value="eMoney"
+                    id="field-eMoney"
+                  />
+                  <label htmlFor="field-eMoney">
+                    <div>e-Money</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            {eMoney === 'eMoney' && (
+              <div className={styles.eMoney}>
+                <div
+                  className={
+                    errors.eMoneyNumber
+                      ? `${styles.labelledInput} ${styles.error}`
+                      : `${styles.labelledInput}`
+                  }
+                >
+                  <div className={styles.inputBar}>
+                    <label htmlFor="eMoneyNumber">e-Money Number</label>
+                    {errors.eMoneyNumber && (
+                      <p>{errors.eMoneyNumber.message}</p>
+                    )}
+                  </div>
+                  <input
+                    id="eMoneyPin"
+                    {...register('eMoneyNumber', {
+                      required: 'Number is required',
+                    })}
+                  />
+                </div>
+                <div
+                  className={
+                    errors.eMoneyNumber
+                      ? `${styles.labelledInput} ${styles.error}`
+                      : `${styles.labelledInput}`
+                  }
+                >
+                  <div className={styles.inputBar}>
+                    <label htmlFor="eMoneyPIN">e-Money Number</label>
+                    {errors.eMoneyPIN && <p>{errors.eMoneyPIN.message}</p>}
+                  </div>
+                  <input
+                    id="eMoneyPIN"
+                    {...register('eMoneyPIN', {
+                      required: 'PIN is required',
+                    })}
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+        </form>
+      </div>
+      <Summary />
+    </section>
+  );
 }

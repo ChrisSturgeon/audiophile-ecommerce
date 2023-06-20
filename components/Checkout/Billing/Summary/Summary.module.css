@@ -1,0 +1,14 @@
+.summary {
+}
+
+.summary > div {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1em;
+}
+
+@media (min-width: 1024px) {
+  .summary > div {
+    padding: 2em;
+  }
+}

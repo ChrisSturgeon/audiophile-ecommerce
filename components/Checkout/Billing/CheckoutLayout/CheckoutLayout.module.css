@@ -1,0 +1,160 @@
+.checkout {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 1em;
+}
+
+.checkout .inputs {
+  padding: 1em;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.checkout .inputs h1 {
+  margin-bottom: 1em;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+.checkout form {
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+}
+
+.billing > div,
+.shipping > div {
+  display: grid;
+  gap: 1em;
+}
+
+.checkoutHeader {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1.14px;
+}
+
+.labelledInput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+}
+
+.labelledInput .inputBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.billing h2,
+.shipping h2,
+.payment h2 {
+  font-size: 13px;
+  letter-spacing: 0.93px;
+  color: var(--orange);
+  margin-bottom: 1em;
+}
+
+.labelledInput label,
+.labelledInput .paymentLabel {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.21px;
+}
+
+.labelledInput p {
+  font-size: 14px;
+  letter-spacing: -0.21px;
+}
+
+.labelledInput.error label,
+.labelledInput.error p {
+  color: var(--error-red);
+}
+
+.labelledInput.error input {
+  border: 2px solid var(--error-red);
+}
+
+.labelledInput .radioInputs {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 1em;
+}
+
+.labelledInput .radioInputs > div {
+  height: 50px;
+  position: relative;
+}
+
+.labelledInput .radioInputs > div label {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding-left: 2em;
+  border-radius: 8px;
+  outline: 1px solid var(--very-dark-grey);
+}
+
+.labelledInput .radioInputs > div input {
+  position: absolute;
+  z-index: 2;
+  left: 0.5em;
+  top: 38%;
+  accent-color: var(--orange);
+}
+
+.labelledInput .radioInputs > div input:checked + label {
+  outline: 1px solid var(--orange);
+}
+
+.eMoney {
+  margin-block: 1em;
+  /* background-color: pink; */
+  display: grid;
+  gap: 1em;
+}
+
+@media (min-width: 768px) {
+  .checkout .inputs h1 {
+    font-size: 32px;
+    letter-spacing: 1.14px;
+  }
+
+  .checkout .billing > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
+
+  .checkout .shipping > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
+  .checkout .shipping > div > div:first-of-type {
+    grid-column: 1 / 3;
+  }
+
+  .labelledInput .radioInputs {
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .eMoney {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .checkout {
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 350px;
+  }
+
+  .checkout .inputs {
+    padding: 2em;
+  }
+}

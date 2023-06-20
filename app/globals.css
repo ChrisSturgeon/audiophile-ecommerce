@@ -11,6 +11,7 @@
   --grey: #f1f1f1;
   --dark-grey: #e8e8e8;
   --very-dark-grey: #717171;
+  --error-red: rgb(223, 17, 17);
 }
 
 * {
@@ -43,9 +44,9 @@ input {
   letter-spacing: -0.25px;
 }
 
-input.error {
+/* input.error {
   border: 2px solid red;
-}
+} */
 
 label {
   font-size: 14px;
@@ -53,8 +54,8 @@ label {
   letter-spacing: -0.21px;
 }
 
-.labelledInput {
+/* .labelledInput {
   display: flex;
   flex-direction: column;
   gap: 0.25em;
-}
+} */
