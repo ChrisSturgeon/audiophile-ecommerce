@@ -29,7 +29,6 @@ export default function CartItem({
   slug,
 }: CartItemProps) {
   const { incrementProduct, decrementProduct } = useGlobalContext();
-  console.log(thumbnail);
 
   return (
     <div className={styles.cartItem}>

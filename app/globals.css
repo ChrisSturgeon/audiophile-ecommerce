@@ -10,7 +10,7 @@
   --light-grey: #090808;
   --grey: #f1f1f1;
   --dark-grey: #e8e8e8;
-  --very-dark-grey: #6f6f6f;
+  --very-dark-grey: #717171;
 }
 
 * {
@@ -32,4 +32,29 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+input {
+  color: var(--very-dark-grey);
+  border: 1px solid var(--very-dark-grey);
+  border-radius: 8px;
+  padding: 1em;
+  font-size: 16px;
+  letter-spacing: -0.25px;
+}
+
+input.error {
+  border: 2px solid red;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.21px;
+}
+
+.labelledInput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
 }

@@ -1,3 +1,10 @@
+import CheckoutLayout from '@/components/Checkout/Billing/CheckoutLayout/CheckoutLayout';
+import ComponentWrapper from '@/components/ComponentWrapper/ComponentWrapper';
+
 export default function Checkout() {
-  return <div>I am the checkout page</div>;
+  return (
+    <ComponentWrapper>
+      <CheckoutLayout />
+    </ComponentWrapper>
+  );
 }

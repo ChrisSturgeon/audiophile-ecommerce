@@ -1,0 +1,9 @@
+.labelledInput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.labelledInput.invalid {
+  color: red;
+}
