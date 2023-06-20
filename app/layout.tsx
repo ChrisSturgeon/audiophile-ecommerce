@@ -8,26 +8,31 @@ import styles from './layout.module.css';
 import Footer from '@/components/Footer/Footer';
 import { GlobalContextProvider } from './Context/cart';
 
-interface CartProps {}
+import { Manrope } from 'next/font/google';
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+});
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // const { cart, setCart, incrementProduct, decrementProduct } = useCart();
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com"></link>
         <link
           href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap"
-          rel="stylesheet"
-        ></link>
+          rel="stylesheet preload"
+          as="style"
+        ></link> */}
       </head>
       <GlobalContextProvider>
-        <body className={styles.layout}>
+        <body className={`${styles.layout} ${manrope.className}`}>
           <Navbar />
           <main>{children}</main>
           <Footer />

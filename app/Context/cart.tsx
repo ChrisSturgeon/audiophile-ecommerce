@@ -51,11 +51,17 @@ function isPresent(name: string, cart: CartProps) {
 }
 
 function getLocalStorageCart() {
-  const previousCart = localStorage.getItem('cart');
+  if (typeof window !== 'undefined') {
+    const previousCart = localStorage.getItem('cart');
 
-  if (previousCart) {
-    return JSON.parse(previousCart);
+    if (previousCart) {
+      return JSON.parse(previousCart);
+    }
   }
+
+  // if (previousCart) {
+  //   return JSON.parse(previousCart);
+  // }
   return {};
 }
 
