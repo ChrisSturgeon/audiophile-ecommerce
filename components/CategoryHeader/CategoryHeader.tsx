@@ -1,4 +1,5 @@
 import styles from './CategoryHeader.module.css';
+
 interface Props {
   name: string;
 }

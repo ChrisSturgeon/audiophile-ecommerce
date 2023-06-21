@@ -1,6 +1,4 @@
 import styles from './mobileNavbar.module.css';
-import Link from 'next/link';
-import CategoryLinks from '@/components/CategoryLinks/CategoryLinks';
 import CategoryLink from '@/components/CategoryLink/CategoryLink';
 
 interface Props {

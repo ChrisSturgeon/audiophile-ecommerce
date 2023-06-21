@@ -1,5 +1,4 @@
 import styles from './Recommendation.module.css';
-import Link from 'next/link';
 import LinkButton from '@/components/LinkButton/LinkButton';
 
 interface Props {

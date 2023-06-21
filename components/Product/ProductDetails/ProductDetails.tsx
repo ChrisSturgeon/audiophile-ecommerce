@@ -1,4 +1,3 @@
-import { useGlobalContext } from '@/app/Context/cart';
 import styles from './ProductDetails.module.css';
 import ProductDetailCartButtons from '../ProductDetailCartButtons/ProductDetailCartButtons';
 

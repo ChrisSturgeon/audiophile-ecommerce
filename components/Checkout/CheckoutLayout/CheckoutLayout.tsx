@@ -294,7 +294,6 @@ export default function CheckoutLayout() {
         </form>
       </div>
       <Summary />
-
       {showConfirmation && <OrderConfirmation />}
     </section>
   );

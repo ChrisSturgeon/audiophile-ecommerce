@@ -1,5 +1,4 @@
 import styles from './Recommendations.module.css';
-import Link from 'next/link';
 import Recommendation from '../Recommendation/Recommendation';
 
 export type RecommendationsProps = {

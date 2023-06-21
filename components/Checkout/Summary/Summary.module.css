@@ -1,6 +1,3 @@
-.summaryWrapper {
-}
-
 .summary {
   background-color: white;
   border-radius: 8px;
@@ -31,10 +28,6 @@
   display: flex;
   flex-direction: column;
   gap: 1em;
-}
-
-.summary ul li {
-  /* margin-block: 1em; */
 }
 
 .summary ul li span {
