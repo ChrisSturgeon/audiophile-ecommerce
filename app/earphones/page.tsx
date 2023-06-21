@@ -5,6 +5,11 @@ import CategoryLinks from '@/components/CategoryLinks/CategoryLinks';
 import About from '@/components/About/About';
 import CategorySKUS from '@/components/CategorySKUS/CategorySKUS';
 
+export const metadata = {
+  title: `Earphones`,
+  description: 'Only the finest earphones bought to you by Audiophile.',
+};
+
 export default function Page() {
   return (
     <div>

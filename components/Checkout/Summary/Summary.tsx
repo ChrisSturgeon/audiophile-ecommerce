@@ -5,8 +5,7 @@ import { useGlobalContext } from '@/app/Context/cart';
 import { useEffect, useState } from 'react';
 
 export default function Summary() {
-  const { cart, totalCartItems, emptyCart, getCartTotalPrice } =
-    useGlobalContext();
+  const { cart, getCartTotalPrice } = useGlobalContext();
 
   const [windowIsDefined, setWindowIsDefined] = useState(false);
 
@@ -25,7 +24,6 @@ export default function Summary() {
         <div className={styles.summaryWrapper}>
           <div className={styles.summary}>
             <h2>SUMMARY</h2>
-
             <div className={styles.items}>
               {Object.entries(cart).map(([key, value]) => (
                 <CartItem
@@ -65,10 +63,7 @@ export default function Summary() {
                 <span>
                   <div>GRAND TOTAL</div>
                   <div>
-                    $
-                    {(
-                      50 + Math.floor(getCartTotalPrice() * 0.2)
-                    ).toLocaleString()}
+                    ${(50 + Math.floor(getCartTotalPrice())).toLocaleString()}
                   </div>
                 </span>
               </li>
@@ -79,6 +74,7 @@ export default function Summary() {
                 form="checkout-form"
                 type="submit"
                 className={styles.payButton}
+                aria-label="continue and pay"
               >
                 CONTINUE & PAY
               </button>

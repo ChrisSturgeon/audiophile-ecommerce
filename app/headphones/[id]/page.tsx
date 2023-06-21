@@ -2,7 +2,10 @@ import data from '../../../data.json';
 import { redirect } from 'next/navigation';
 import ProductLayout from '@/components/Product/ProductLayout';
 
-// TO DO make metadata
+export const metadata = {
+  title: `Headphones`,
+  description: 'Only the finest headphones bought to you by Audiophile.',
+};
 
 function getProductData(id: string) {
   const productData = data.find((product) => {

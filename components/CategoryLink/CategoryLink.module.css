@@ -6,6 +6,10 @@
   border-radius: 0.5em;
 }
 
+.categoryLink.mobileNav {
+  grid-template-rows: 50px auto;
+}
+
 .categoryLink img {
   width: 200px;
   height: auto;
@@ -13,6 +17,18 @@
   margin: 0 auto;
   bottom: 65px;
   z-index: 0;
+}
+
+.categoryLink.mobileNav img {
+  width: 100px;
+  bottom: 25px;
+}
+
+@media (min-width: 768px) {
+  .categoryLink.mobileNav img {
+    width: 200px;
+    bottom: 100px;
+  }
 }
 
 .categoryLink .details {

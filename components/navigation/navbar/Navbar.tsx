@@ -23,12 +23,17 @@ export default function Navbar() {
     <div className={styles.wrapper}>
       <nav className={styles.desktopNav}>
         <button
+          aria-label="toggle navigation menu"
           className={styles.hamburgerBtn}
           onClick={() => {
             setMobileOpen(!mobileOpen);
           }}
         >
-          HM
+          <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#FFF" fillRule="evenodd">
+              <path d="M0 0h16v3H0zM0 6h16v3H0zM0 12h16v3H0z" />
+            </g>
+          </svg>
         </button>
         <Link href="/" aria-label={'Home page'}>
           <svg width="143" height="25" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +52,8 @@ export default function Navbar() {
         </div>
         <CartButton toggleCart={toggleCart} />
       </nav>
-      <MobileNavbar isVisible={mobileOpen} toggleMobileNav={toggleMobileNav} />
+
+      {mobileOpen && <MobileNavbar toggleMobileNav={toggleMobileNav} />}
       {cartOpen && <Cart toggleCart={toggleCart} />}
     </div>
   );

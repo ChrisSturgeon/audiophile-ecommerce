@@ -3,11 +3,11 @@
 import styles from './OrderConfirmation.module.css';
 import { useState, useEffect } from 'react';
 import { useGlobalContext } from '@/app/Context/cart';
-import LinkButton from '@/components/LinkButton/LinkButton';
 import formatProductName from '@/lib/formatProductName';
+import LinkButton from '@/components/LinkButton/LinkButton';
 
 export default function OrderConfirmation() {
-  const { cart, totalCartItems, emptyCart, getCartTotalPrice } =
+  const { cart, totalCartItems, getCartTotalPrice, emptyCart } =
     useGlobalContext();
 
   const [windowIsDefined, setWindowIsDefined] = useState(false);
@@ -23,8 +23,6 @@ export default function OrderConfirmation() {
 
   if (windowIsDefined) {
     const firstItem = cart[Object.keys(cart)[0]];
-
-    console.log(firstItem);
 
     return (
       <div className={styles.modal}>
@@ -71,5 +69,5 @@ export default function OrderConfirmation() {
     );
   }
 
-  return <div>Loading...</div>;
+  return <div></div>;
 }

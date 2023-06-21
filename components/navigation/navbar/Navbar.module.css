@@ -21,9 +21,18 @@
   padding: 0 1em;
 }
 
+.hamburgerBtn {
+  background-color: transparent;
+  border: none;
+}
+
 .desktopNav a {
   color: var(--white);
   text-align: center;
+}
+
+.desktopNav a svg {
+  margin: 0 auto;
 }
 
 .desktopNav a:hover {
@@ -56,6 +65,10 @@
   .desktopNav > a:first-of-type {
     margin-left: 2em;
     text-align: left;
+  }
+
+  .desktopNav a svg {
+    margin: 0;
   }
 }
 

@@ -112,9 +112,21 @@
 
 .eMoney {
   margin-block: 1em;
-  /* background-color: pink; */
   display: grid;
   gap: 1em;
+}
+
+.COD {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1em;
+  margin-block: 2em;
+}
+
+.COD p {
+  font-size: 15px;
+  line-height: 25px;
+  color: var(--very-dark-grey);
 }
 
 @media (min-width: 768px) {

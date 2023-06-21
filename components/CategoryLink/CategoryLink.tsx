@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './CategoryLink.module.css';
 import Link from 'next/link';
 
@@ -7,6 +9,8 @@ interface Props {
   altText: string;
   width: number;
   height: number;
+  isMobileNav?: boolean;
+  toggle?: Function;
 }
 
 export default function CategoryLink({
@@ -15,13 +19,28 @@ export default function CategoryLink({
   altText,
   width,
   height,
+  isMobileNav,
+  toggle,
 }: Props) {
   return (
-    <div className={styles.categoryLink}>
+    <div
+      className={
+        isMobileNav
+          ? ` ${styles.categoryLink} ${styles.mobileNav}`
+          : `${styles.categoryLink}`
+      }
+    >
       <img src={imageURL} alt={altText} width={width} height={height} />
       <div className={styles.details}>
         <h2>{name}</h2>
-        <Link href={`/${name.toLowerCase()}`}>
+        <Link
+          href={`/${name.toLowerCase()}`}
+          onClick={() => {
+            if (toggle) {
+              toggle();
+            }
+          }}
+        >
           <span>
             <div>SHOP</div>
             <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg">

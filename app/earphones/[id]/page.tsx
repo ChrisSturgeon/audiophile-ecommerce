@@ -3,13 +3,13 @@ import { redirect } from 'next/navigation';
 import ProductLayout from '@/components/Product/ProductLayout';
 
 export const metadata = {
-  title: `Speakers`,
-  description: 'Only the finest speakers bought to you by Audiophile.',
+  title: `Earphones`,
+  description: 'Only the finest earphones bought to you by Audiophile.',
 };
 
 function getProductData(id: string) {
   const productData = data.find((product) => {
-    return product.slug === id && product.category === 'speakers';
+    return product.slug === id && product.category === 'earphones';
   });
 
   if (productData) {
@@ -51,7 +51,7 @@ export default function Page({ params }: PageProps) {
 
 export async function generateStaticParams() {
   const headphones = data.filter((product) => {
-    if (product.category === 'speakers') {
+    if (product.category === 'headphones') {
       return product;
     }
   });

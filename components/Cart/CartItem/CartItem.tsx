@@ -25,7 +25,7 @@ export default function CartItem({
   if (type === 'cart') {
     return (
       <div className={styles.cartItem}>
-        <img src={thumbnail} height="64px" width="64px"></img>
+        <img src={thumbnail} height="64px" width="64px" alt={name}></img>
         <div className={styles.text}>
           <div>{formatProductName(name)}</div>
           <div>$ {price.toLocaleString()}</div>
