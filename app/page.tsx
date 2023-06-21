@@ -1,11 +1,8 @@
 import styles from './page.module.css';
 import CategoryLinks from '@/components/CategoryLinks/CategoryLinks';
-// import Banner from '@/components/Hero/Hero';
-
-import Hero from '@/components/Hero/Hero';
-
 import FeaturedProducts from '@/components/FeaturedProducts/FeaturedProducts';
 import About from '@/components/About/About';
+import HeroBanner from '@/components/HeroBanner/HeroBanner';
 
 export const metadata = {
   title: 'Audiophile',
@@ -15,7 +12,7 @@ export const metadata = {
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Hero />
+      <HeroBanner />
       <div className={styles.column}>
         <CategoryLinks />
         <FeaturedProducts />
