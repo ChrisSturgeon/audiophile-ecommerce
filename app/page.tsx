@@ -12,7 +12,7 @@ export const metadata = {
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Hero />
+      {/* <Hero /> */}
       <div className={styles.column}>
         <CategoryLinks />
         <FeaturedProducts />
