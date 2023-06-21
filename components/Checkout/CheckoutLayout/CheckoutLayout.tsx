@@ -3,6 +3,7 @@
 import styles from './CheckoutLayout.module.css';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Summary from '../Summary/Summary';
+import OrderConfirmation from '../OrderConfirmation/OrderConfirmation';
 
 type Inputs = {
   name: string;
@@ -271,6 +272,7 @@ export default function CheckoutLayout() {
         </form>
       </div>
       <Summary />
+      <OrderConfirmation />
     </section>
   );
 }

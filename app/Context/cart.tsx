@@ -58,10 +58,6 @@ function getLocalStorageCart() {
       return JSON.parse(previousCart);
     }
   }
-
-  // if (previousCart) {
-  //   return JSON.parse(previousCart);
-  // }
   return {};
 }
 
@@ -74,13 +70,10 @@ export const GlobalContextProvider = ({ children }: { children: any }) => {
   const [cart, setCart] = useState<CartProps>(getLocalStorageCart());
   const [totalCartItems, setTotalCartItems] = useState(0);
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
-
+  // Update local storage clone of cart on change
   useEffect(() => {
     updateLocalStorageCart(cart);
-  });
+  }, [cart]);
 
   // Sums number of items in cart and updates count in state
   useEffect(() => {

@@ -1,6 +1,7 @@
 'use client';
 import styles from './CartItem.module.css';
 import { useGlobalContext } from '@/app/Context/cart';
+import formatProductName from '@/lib/formatProductName';
 
 interface CartItemProps {
   type: 'cart' | 'summary';
@@ -9,17 +10,6 @@ interface CartItemProps {
   price: number;
   thumbnail: string;
   slug: string;
-}
-
-function formatName(name: string) {
-  const noMark = name.replace('Mark', 'MK');
-
-  const noCategory = ['Headphones', 'Earpones', 'Speaker'].reduce(
-    (result, word) => result.replace(word, ''),
-    noMark
-  );
-
-  return noCategory;
 }
 
 export default function CartItem({
@@ -37,7 +27,7 @@ export default function CartItem({
       <div className={styles.cartItem}>
         <img src={thumbnail} height="64px" width="64px"></img>
         <div className={styles.text}>
-          <div>{formatName(name)}</div>
+          <div>{formatProductName(name)}</div>
           <div>$ {price.toLocaleString()}</div>
         </div>
         <div className={styles.counter}>
@@ -53,7 +43,7 @@ export default function CartItem({
     <div className={styles.cartItem}>
       <img src={thumbnail} height="64px" width="64px"></img>
       <div className={styles.text}>
-        <div>{formatName(name)}</div>
+        <div>{formatProductName(name)}</div>
         <div>$ {price.toLocaleString()}</div>
       </div>
       <div className={styles.quantity}>x{quantity}</div>
