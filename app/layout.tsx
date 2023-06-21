@@ -1,13 +1,8 @@
-'use client';
 import Navbar from '@/components/navigation/navbar/Navbar';
 import './globals.css';
-import { useState } from 'react';
-import useCart from './hooks/useCart';
-
 import styles from './layout.module.css';
 import Footer from '@/components/Footer/Footer';
 import { GlobalContextProvider } from './Context/cart';
-
 import { Manrope } from 'next/font/google';
 
 const manrope = Manrope({

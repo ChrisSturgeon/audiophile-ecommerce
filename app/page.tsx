@@ -1,8 +1,6 @@
 import styles from './page.module.css';
-// import Hero from '@/components/Hero/Hero';
 import CategoryLinks from '@/components/CategoryLinks/CategoryLinks';
 import Banner from '@/components/Hero/Hero';
-
 import FeaturedProducts from '@/components/FeaturedProducts/FeaturedProducts';
 import About from '@/components/About/About';
 
