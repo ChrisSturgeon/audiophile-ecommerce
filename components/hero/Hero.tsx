@@ -1,7 +1,7 @@
 import styles from './Hero.module.css';
 import Link from 'next/link';
 
-export default function Hero() {
+export default function Banner() {
   return (
     <section className={styles.hero}>
       <picture>
