@@ -29,8 +29,6 @@ export default function CheckoutLayout() {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
-  console.log(watch('paymentMethod'));
-
   return (
     <section className={styles.checkout}>
       <div className={styles.inputs}>
