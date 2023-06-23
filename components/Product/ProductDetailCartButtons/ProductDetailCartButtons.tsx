@@ -31,7 +31,7 @@ export default function ProductDetailCartButtons({ slug }: Props) {
     <div className={styles.cartButtons}>
       <div>
         <button onClick={decrementCounter}>-</button>
-        <div>{counter}</div>
+        <p>{counter}</p>
         <button onClick={incrementCounter}>+</button>
       </div>
       <button onClick={addToCart} className={styles.add}>

@@ -44,15 +44,22 @@ export default function Navbar() {
             />
           </svg>
         </Link>
-        <div className={styles.categories}>
-          <Link href="/">HOME</Link>
-          <Link href="/headphones">HEADPHONES</Link>
-          <Link href="/speakers">SPEAKERS</Link>
-          <Link href="/earphones">EARPHONES</Link>
-        </div>
+        <ul>
+          <li>
+            <Link href="/">HOME</Link>
+          </li>
+          <li>
+            <Link href="/headphones">HEADPHONES</Link>
+          </li>
+          <li>
+            <Link href="/speakers">SPEAKERS</Link>
+          </li>
+          <li>
+            <Link href="/earphones">EARPHONES</Link>
+          </li>
+        </ul>
         <CartButton toggleCart={toggleCart} />
       </nav>
-
       {mobileOpen && <MobileNavbar toggleMobileNav={toggleMobileNav} />}
       {cartOpen && <Cart toggleCart={toggleCart} />}
     </div>
