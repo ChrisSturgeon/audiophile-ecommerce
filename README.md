@@ -13,7 +13,7 @@
 
 A multi-page e-commerce website for a fictional audio shop built with NextJS and TypeScript.
 
-View the live project [here](https://vercel.com/chrissturgeon/audiophile-ecommerce) and view the project guidelines [here](https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx/hub.)
+View the live project [here](https://audiophile-ecommerce-sandy-ten.vercel.app/) and view the project guidelines [here](https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx/hub.)
 
 ![Front page screenshot](/public/screenshot.png 'IMG DESCRIPTION')
 
